@@ -2,8 +2,10 @@
 
 <% @tasks.each do |t| %>
 
-<%= t.title %> <br>
+<%= t.title %> <%= link_to "Show", tasks_path %> <br> 
 
 <% end %>
+
+<hr>
 
 <%= link_to "New Task Title", new_task_path %>
