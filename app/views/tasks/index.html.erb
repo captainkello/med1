@@ -1,3 +1,9 @@
 <h1> List Task Titles </h1>
 
+<% @tasks.each do |t| %>
+
+<%= t.title %> <br>
+
+<% end %>
+
 <%= link_to "New Task Title", new_task_path %>
