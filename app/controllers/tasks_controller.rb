@@ -18,6 +18,10 @@ class TasksController < ApplicationController
   	@task = Task.find(params[:id])
   end
 
+  def edit
+    @task = Task.find(task_params)
+  end
+
 
   private
   # Never trust parameters from the scary internet, only allow the white list through.
