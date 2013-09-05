@@ -14,12 +14,14 @@ class TasksController < ApplicationController
   	redirect_to action: :show, id: @task.id
   end
 
+  # No commands used in Rails 4.0
   def show
-  	@task = Task.find(params[:id])
+  	@task = Task.find(params[:id])  # Why not use task_params?? Not used in Rails 4
   end
 
+  # No commands used in Rails 4.0
   def edit
-    @task = Task.find(task_params)
+    @task = Task.find(params[:id])  # Why not use task_params??
   end
 
 
