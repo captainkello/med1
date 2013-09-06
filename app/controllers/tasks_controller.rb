@@ -17,7 +17,6 @@ class TasksController < ApplicationController
 
   # No commands used in Rails 4.0
   def show
-    redirect_to action: :show, id: @task.id
   end
 
   # No commands used in Rails 4.0
