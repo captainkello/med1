@@ -1,4 +1,5 @@
 class TasksController < ApplicationController
+  before_action :set_task, only: [:show, :edit, :update, :destroy]
 
   def index
     @tasks = Task.all
@@ -16,7 +17,7 @@ class TasksController < ApplicationController
 
   # No commands used in Rails 4.0
   def show
-  	@task = Task.find(params[:id])  # Why not use task_params?? Not used in Rails 4
+    redirect_to action: :show, id: @task.id
   end
 
   # No commands used in Rails 4.0
@@ -26,6 +27,11 @@ class TasksController < ApplicationController
 
 
   private
+   # Use callbacks to share common setup or constraints between actions.
+    def set_task
+      @task = Task.find(params[:id])
+    end
+
   # Never trust parameters from the scary internet, only allow the white list through.
     def task_params
     	params.require(:task).permit(:title)
