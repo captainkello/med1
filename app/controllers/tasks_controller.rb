@@ -34,6 +34,25 @@ class TasksController < ApplicationController
       # Why not use set_task as before_action ??
   end
 
+  def update
+    respond_to do |format|
+      if @task.update(task_params)
+        format.html { redirect_to @task, notice: 'Task updated.' }
+        format.json { head :no_content }
+      else
+        format.html { render action: 'edit'}
+        format.json { render json: @task.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
+  def destroy
+    @task.destroy
+    respond_to do |format|
+      format.html { redirect_to tasks_url }
+      format.json { head :no_content }
+    end
+  end
 
   private
    # Use callbacks to share common setup or constraints between actions.
