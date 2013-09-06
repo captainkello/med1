@@ -11,8 +11,14 @@ class TasksController < ApplicationController
 
   def create
   	@task = Task.new(task_params)
-  	@task.save
-  	redirect_to action: :show, id: @task.id
+
+    respond_to do |format|
+  	  if @task.save
+        format.html { redirect_to @task, notice: 'Good job' }
+  	  else
+
+      end
+    end
   end
 
   # No commands used in Rails 4.0
@@ -21,7 +27,7 @@ class TasksController < ApplicationController
 
   # No commands used in Rails 4.0
   def edit
-    @task = Task.find(params[:id])  # Why not use task_params??
+      # Why not use set_task as before_action ??
   end
 
 
