@@ -1,28 +1,13 @@
-== README
+If you use the Rails form helpers to generate your forms, when a validation error occurs on a field, it will generate an extra <div> around the entry.
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+<div class="field_with_errors">
+ <input id="post_title" name="post[title]" size="30" type="text" value="">
+</div>
+You can then style this div however you'd like. The default scaffold that Rails generates, for example, adds this CSS rule:
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+.field_with_errors {
+  padding: 2px;
+  background-color: red;
+  display: table;
+}
+This means that any field with an error ends up with a 2 pixel red border.
