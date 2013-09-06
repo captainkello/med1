@@ -15,7 +15,11 @@ class TasksController < ApplicationController
     respond_to do |format|
   	  if @task.save
         format.html { redirect_to @task, notice: 'Good job' }
+        format.json { render action: 'show', status: :created, location: @task}
+
   	  else
+        format.html { render action: 'new'}
+        format.json { render json: @task.errors, status: :unprocessable_entity }
 
       end
     end
