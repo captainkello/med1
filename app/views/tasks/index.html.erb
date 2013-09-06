@@ -1,11 +1,13 @@
 <h1> List Task Titles </h1>
 
+<%= link_to "New Task Title", new_task_path %>
+
+<hr>
+
 <% @tasks.each do |task| %>
 
-<%= task.title %> <%= link_to "Edit me", edit_task_path(task) %> | <%= link_to "Show me", task %> | <%= link_to "Delete Me", task, method: :delete, data: { confirm: 'Are you nuts?' } %> <br> 
+<%= task.title %> <br> <%= link_to "Edit me", edit_task_path(task) %> | <%= link_to "Show me", task %> | <%= link_to "Delete Me", task, method: :delete, data: { confirm: 'Are you nuts?' } %> <br> 
 
 <% end %>
 
 <hr>
-
-<%= link_to "New Task Title", new_task_path %>
